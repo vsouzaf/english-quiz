@@ -3,6 +3,9 @@
   "workspaces": {
     "": {
       "name": "english-quiz",
+      "dependencies": {
+        "@fontsource/manrope": "^5.2.5",
+      },
       "devDependencies": {
         "@eslint/compat": "^1.2.5",
         "@eslint/js": "^9.18.0",
@@ -104,6 +107,8 @@
     "@eslint/plugin-kit": ["@eslint/plugin-kit@0.2.7", "", { "dependencies": { "@eslint/core": "^0.12.0", "levn": "^0.4.1" } }, "sha512-JubJ5B2pJ4k4yGxaNLdbjrnk9d/iDz6/q8wOilpIowd6PJPgaxCuHBnBszq7Ce2TyMrywm5r4PnKm6V3iiZF+g=="],
 
     "@fontsource/fira-mono": ["@fontsource/fira-mono@5.2.5", "", {}, "sha512-rujrs+J+w2Nmqd6zsNQTzT7eYLKrSQWdF7SuAdjjXVs+Si06Ag6etOYFmF3Mzb0NufmEIPCDUS2ppt6hxX+SLg=="],
+
+    "@fontsource/manrope": ["@fontsource/manrope@5.2.5", "", {}, "sha512-4mYUAhsuF8KoXseG8T9woWUc/foznUVluFtE6fCKAqe76WM3kmDNedaINWjzWB73+wly0duFvVpDBma3NXXT0g=="],
 
     "@humanfs/core": ["@humanfs/core@0.19.1", "", {}, "sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA=="],
 
