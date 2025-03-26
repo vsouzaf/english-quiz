@@ -4,7 +4,7 @@ import Siema from 'siema';
 
 export let perPage = 1;
 export let loop = true;
-export let autoplay = 0;
+export let autoplay = false;
 export let duration = 200;
 export let easing = 'ease-out';
 export let startIndex = 0;
@@ -22,7 +22,7 @@ let timer: any;
 
 $: pips = controller ? controller.innerElements : [];
 $: currentPerPage = controller ? controller.perPage : perPage;
-$: totalDots = controller ? Math.ceil(controller.innerElements.length / currentPerPage) : [];
+$: totalDots = controller ? Math.ceil(controller.innerElements.length / currentPerPage) : 0;
 
 onMount(() => {
   controller = new Siema({
@@ -40,7 +40,7 @@ onMount(() => {
   });
 
   if (autoplay) {
-    timer = setInterval(right, autoplay);
+    timer = setInterval(right, 10);
   }
 
   return () => {
@@ -72,7 +72,7 @@ function pause() {
 
 function resume() {
   if (autoplay) {
-    timer = setInterval(right, autoplay);
+    timer = setInterval(right, 10);
   }
 }
 
@@ -115,7 +115,13 @@ function resetInterval(node: HTMLElement, condition: boolean) {
   {#if dots}
     <ul>
       {#each { length: totalDots } as _, i}
-        <li on:click={() => go(i * currentPerPage)} class={isDotActive(currentIndex, i) ? "active" : ""}></li>
+        <li>
+          <button
+            on:click={() => go(i * currentPerPage)}
+            class={isDotActive(currentIndex, i) ? "active" : ""}
+            aria-label="Ir para slide {i + 1}"
+          ></button>
+        </li>
       {/each}
     </ul>
   {/if}
@@ -164,17 +170,23 @@ function resetInterval(node: HTMLElement, condition: boolean) {
 
   ul li {
     margin: 6px;
+  }
+
+  ul li button {
     border-radius: 100%;
     background-color: rgba(255,255,255,0.5);
     height: 8px;
     width: 8px;
+    border: none;
+    padding: 0;
+    cursor: pointer;
   }
 
-  ul li:hover {
+  ul li button:hover {
     background-color: rgba(255,255,255,0.85);
   }
 
-  ul li.active {
-    background-color: rgba(255,255,255,1);
+  ul li button.active {
+    background-color: rgb(58, 58, 58);
   }
 </style>
