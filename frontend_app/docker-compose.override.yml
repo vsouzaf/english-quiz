@@ -1,0 +1,21 @@
+services:
+  frontend_app:
+    build:
+      context: .
+      target: dev
+
+    container_name: frontend_app
+
+    networks:
+      - services_network
+
+    volumes:
+      - .:/app
+      - /app/node_modules
+
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.frontend-app.priority=1"
+      - "traefik.http.routers.frontend-app.rule=PathPrefix(`/`)"
+      - "traefik.http.routers.frontend-app.entrypoints=web"
+      - "traefik.http.services.frontend-app.loadbalancer.server.port=3000" 

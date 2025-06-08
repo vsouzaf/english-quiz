@@ -1,0 +1,16 @@
+services:
+  frontend_app:
+    build:
+      context: .
+      target: prod
+    
+    container_name: frontend_app
+
+    networks:
+      - services_network
+    
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.frontend-app.rule=PathPrefix(`/`)"
+      - "traefik.http.routers.frontend-app.priority=1"
+      - "traefik.http.routers.frontend-app.entrypoints=web"
