@@ -1,0 +1,21 @@
+services:
+  api_gateway:
+    build:
+      target: dev
+
+    container_name: api_gateway
+
+    networks:
+      - services_network
+
+    volumes:
+      - .:/app
+
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.api-gateway.rule=PathPrefix(`/api`)"
+      - "traefik.http.routers.api-gateway.priority=2"
+      - "traefik.http.routers.api-gateway.entrypoints=web"
+      - "traefik.http.middlewares.strip-api-prefix.stripprefix.prefixes=/api"
+      - "traefik.http.routers.api-gateway.middlewares=strip-api-prefix@docker"
+      - "traefik.http.services.api-gateway.loadbalancer.server.port=80" 

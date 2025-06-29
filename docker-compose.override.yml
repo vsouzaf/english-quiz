@@ -1,6 +1,6 @@
 include:
-  - ./frontend_app/docker-compose.override.yml
-  # - ./api_gateway/docker-compose.prod.yml
+  - ./frontend_app/docker-compose.local.yml
+  - ./api_gateway/docker-compose.local.yml
   # - ./auth_service/docker-compose.prod.yml
   # - ./quiz_service/docker-compose.prod.yml
   # - ./analytics_service/docker-compose.prod.yml
