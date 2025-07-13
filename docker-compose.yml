@@ -1,7 +1,7 @@
 include:
   - ./frontend_app/docker-compose.yml
   - ./api_gateway/docker-compose.yml
-  # - ./auth_service/docker-compose.prod.yml
+  - ./auth_service/docker-compose.yml
   # - ./quiz_service/docker-compose.prod.yml
   # - ./analytics_service/docker-compose.prod.yml
   # - ./study_experience_service/docker-compose.prod.yml

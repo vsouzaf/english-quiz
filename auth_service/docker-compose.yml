@@ -1,0 +1,12 @@
+services:
+  auth_service:
+    build:
+      target: build
+    
+    container_name: auth_service
+
+    networks:
+      - services_network
+    
+    env_file:
+      - env.example 
