@@ -5,19 +5,16 @@ services:
 
     container_name: auth_service
 
-    networks:
-      - services_network
+    # networks:
+    #   - services_network
 
     ports:
-      # - 8080:8080 - Use this for local development without the traefik proxy
+      - 80:80 # Use this port for local development without the traefik proxy
       - 5005:5005 # Debug port
 
     volumes:
       - .:/app
       - gradle_cache:/home/gradle/.gradle
-
-    env_file:
-      - env.local
 
 volumes:
   gradle_cache: 

@@ -24,7 +24,7 @@ COPY . .
 FROM builder AS dev
 
 # Expõe a porta padrão do Quarkus
-EXPOSE 8080
+EXPOSE 80
 
 # Define a porta de debug para permitir anexar um debugger remotamente
 EXPOSE 5005
@@ -52,7 +52,7 @@ RUN chown 1001 /work \
     && chown 1001:root /work
 COPY --chown=1001:root --chmod=0755 build/*-runner /work/application
 
-EXPOSE 8080
+EXPOSE 80
 USER 1001
 
 ENTRYPOINT ["./application", "-Dquarkus.http.host=0.0.0.0"]

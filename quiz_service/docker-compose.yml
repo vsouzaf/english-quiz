@@ -1,0 +1,27 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: .docker/php/Dockerfile
+      target: prod
+    
+    container_name: quiz_service
+
+    networks:
+      - services_network
+
+
+  webserver:
+    image: nginx:alpine
+    container_name: quiz_nginx
+    
+    networks:
+      - services_network
+    
+    volumes:
+      - ./.docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    
+    depends_on:
+      - app
+
+
