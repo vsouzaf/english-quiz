@@ -1,0 +1,18 @@
+services:
+  study_experience_service:
+    build:
+      target: local
+      context: .
+    
+    container_name: study_experience_service
+
+    # networks:
+    #   - services_network
+    
+    ports:
+      - "80:80"
+      - "9229:9229"
+    
+    volumes:
+      - .:/app
+      - ./node_modules:/app/node_modules 

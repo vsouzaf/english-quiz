@@ -3,8 +3,8 @@ include:
   - ./api_gateway/docker-compose.yml
   - ./auth_service/docker-compose.yml
   - ./quiz_service/docker-compose.yml
+  - ./study_experience_service/docker-compose.yml
   # - ./analytics_service/docker-compose.prod.yml
-  # - ./study_experience_service/docker-compose.prod.yml
 
 services:
   traefik:

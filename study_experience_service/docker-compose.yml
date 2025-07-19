@@ -1,0 +1,15 @@
+services:
+  study_experience_service:
+    build:
+      target: prod
+      context: .
+    
+    container_name: study_experience_service
+
+    networks:
+      - services_network
+    
+    ports:
+      - "80:80"
+    
+    restart: unless-stopped 
