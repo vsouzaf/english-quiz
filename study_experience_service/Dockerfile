@@ -18,10 +18,12 @@ COPY . .
 RUN npm run build
 
 # =================== Estágio de Desenvolvimento (local) ===================
-# Este estágio usa o código-fonte e as dependências para rodar em modo de desenvolvimento
+# Este estágio usa volumes para permitir hot reload do código-fonte
+# Para usar: docker run -v $(pwd):/app -p 80:80 -p 9229:9229 --name study-experience-local study-experience:local
 FROM node:22-alpine AS local
 
 WORKDIR /app
+
 
 # Copia package.json e package-lock.json
 COPY package*.json ./
@@ -29,7 +31,6 @@ COPY package*.json ./
 # Instala todas as dependências (incluindo devDependencies)
 RUN npm ci
 
-# Copia o código-fonte
 COPY . .
 
 # Expõe a porta padrão do NestJS

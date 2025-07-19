@@ -20,7 +20,7 @@ services:
     
     networks:
       - php_network
-      - services_network
+      # - services_network
 
     ports:
       - 80:80
