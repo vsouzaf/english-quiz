@@ -4,7 +4,7 @@ include:
   - ./auth_service/docker-compose.yml
   - ./quiz_service/docker-compose.yml
   - ./study_experience_service/docker-compose.yml
-  # - ./analytics_service/docker-compose.prod.yml
+  # - ./analytics_service/docker-compose.yml
 
 services:
   traefik:

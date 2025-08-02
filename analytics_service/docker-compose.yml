@@ -1,0 +1,14 @@
+services:
+  analytics_service:
+    build:
+      context: .
+      target: local
+    container_name: analytics_service_local
+    ports:
+      - "8004:80"
+    volumes:
+      - .:/app
+    environment:
+      - HOST=0.0.0.0
+      - PORT=80
+    restart: unless-stopped
